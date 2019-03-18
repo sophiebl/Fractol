@@ -1,38 +1,70 @@
-NAME = Fractol
-SRC_PATH = ./
-OBJ_PATH = ./
-INC = -I /usr/local/include
-LDFLAGS = -L ./minilibx -L ./libft
-LDLIBS = -lmlx -framework OpenGL -framework AppKit -lft
-CFLAGS = -Wall -Wextra -Werror
-CC = gcc 
-SRC = main.c \
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: oel-ayad <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2019/01/16 14:34:20 by oel-ayad          #+#    #+#              #
+#    Updated: 2019/01/30 15:42:32 by oel-ayad         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME	= fractol
+
+SRC		= frtl_main.c \
+			frtl_err.c \
+			frtl_windows.c \
+			frtl_deal.c \
+			frtl_deal_mouse.c \
+			frtl_mand.c \
+			frtl_ju.c \
+			frtl_my.c \
+			frtl_newton.c \
+			frtl_ship.c \
+			frtl_utils.c \
+			frtl_init.c \
+			frtl_usage.c
+
+OBJ		= $(addprefix $(OBJDIR),$(SRC:.c=.o))
+
+CC		= gcc
+CFLAGS	= -Wall -Wextra -Werror 
+
+MLX		= ./mlx/
+MLX_LIB	= $(addprefix $(MLX),mlx.a)
+MLX_INC	= -I ./mlx
+MLX_LNK	= -L ./mlx -l mlx -framework OpenGL -framework AppKit
+
+FT		= ./libft/
+FT_LIB	= $(addprefix $(FT),libft.a)
+FT_INC	= -I ./libft
+FT_LNK	= -L ./libft -l ft
+
+SRCDIR	= ./srcs/
+INCDIR	= ./includes/
+OBJDIR	= ./obj/
 
 all: $(NAME)
 
-OBJ = $(SRC:.c=.o)
+$(OBJDIR)%.o:$(SRCDIR)%.c
+	mkdir -p $(OBJDIR)
+	$(CC) $(CFLAGS) $(MLX_INC) $(FT_INC) -o $@ -c $< -I $(INCDIR)
 
-$(NAME): $(OBJ)
-	@echo "\033[32m>>\033[0m \033[33mStarting library & $(NAME)\033[32m compilation\033[0m \033[0m"
-	@make -C libft
-	@make -C minilibx
-	@$(CC) $(LDFLAGS) $(LDLIBS) $^ -o $@
-	@echo "\033[32m>> $(NAME) correctly created ... OK\033[0m"
-
-%.o: %.c fdf.h
-	@$(CC) $(CFLAGS) -o $@ -c $<
+$(NAME): $(OBJ) 
+	make -C $(MLX)
+	make -C $(FT) 
+	$(CC) $(OBJ) $(MLX_LNK) $(FT_LNK) -lm -o $(NAME)
 
 clean:
-	@rm -f $(OBJ)
-	@make -C libft clean
-	@make -C minilibx clean
-	@echo "\033[32mObjects \033[31mremoved\033[0m"
+	rm -rf $(OBJDIR)
+	make -C $(FT) clean
+	make -C $(MLX) clean
 
 fclean: clean
-	@rm -f $(NAME)
-	@make -C libft fclean
-	@echo "\033[32m$(NAME) \033[31mremoved\033[0m"
+	rm -rf $(NAME)
+	make -C $(FT) fclean
 
 re: fclean all
 
-.PHONY: all, clean, fclean, re
+.PHONY: all obj fclean clean re
