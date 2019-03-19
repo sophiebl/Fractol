@@ -44,9 +44,9 @@ void		fract_init_ju(t_fract *fract)
 	fract->img_y = HEIGHT - 1;
 	fract->c_r = 0.285;
 	fract->c_i = 0.01;
-	fract->x1 = fract->img_x * -0.001;
+	fract->x1 = fract->img_x * -0.001 - 0.95;
 	fract->x2 = 1;
-	fract->y1 = fract->img_y * -0.001;
+	fract->y1 = fract->img_y * -0.001 - 0.9;
 	fract->y2 = 1.2;
 	fract->tmp = 0;
 	fract->i_max = 30;

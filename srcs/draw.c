@@ -6,8 +6,8 @@ void			draw_fractol(t_mlx *mlx, int x, int y, unsigned int c)
 
 	i = y * WIDTH + x;
 	mlx->infos->img->data[i] = c;
-	mlx->infos->img->data[++i] = c >> 8;
-	mlx->infos->img->data[++i] = c >> 16;
+	//mlx->infos->img->data[++i] = c >> 8;
+	//mlx->infos->img->data[++i] = c >> 16;
 }
 
 void			init_tabcolor(t_info *infos)

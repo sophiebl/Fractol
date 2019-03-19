@@ -4,13 +4,8 @@
 # include <math.h>
 # include "../mlx/mlx.h"
 # include "../libft/libft.h"
-# define WIDTH		1920
-# define HEIGHT		1300
-# define JU			"julia"
-# define MAND		"mandelbrot"
-# define SHIP		"burningship"
-# define MY			"oel-ayad"
-# define NEW		"newton"
+# define WIDTH		1600
+# define HEIGHT		1200
 
 typedef struct		s_fract
 {
@@ -43,8 +38,6 @@ typedef struct		s_info
 	short			mouse;
 	short			stop_psy;
 	short			fract;
-//	int				width;
-//	int				height;
 	short			i_tab;
 	unsigned int	color_tab[11];
 	unsigned int	color;

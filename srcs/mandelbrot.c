@@ -42,11 +42,11 @@ void		fract_dspl_mand(t_mlx *mlx)
 
 void		fract_init_mand(t_fract *fract)
 {
-	fract->img_x = WIDTH - 1;
-	fract->img_y = HEIGHT - 1;
-	fract->x1 = fract->img_x * -0.001 - 0.5;
+	fract->img_x = WIDTH;
+	fract->img_y = HEIGHT;
+	fract->x1 = fract->img_x * -0.001 - 0.95;
 	fract->x2 = 2.1;
-	fract->y1 = fract->img_y * -0.001;
+	fract->y1 = fract->img_y * -0.001 - 0.9;
 	fract->y2 = 1.2;
 	fract->tmp = 0;
 	fract->i_max = 30;

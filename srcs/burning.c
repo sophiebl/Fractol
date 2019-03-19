@@ -44,7 +44,7 @@ void		fract_init_burning(t_fract *fract)
 {
 	fract->img_x = WIDTH - 1;
 	fract->img_y = HEIGHT - 1;
-	fract->x1 = fract->img_x * -0.001 - 1;
+	fract->x1 = fract->img_x * -0.001 - 1 - 0.75;
 	fract->x2 = 2.1;
 	fract->y1 = fract->img_y * -0.001 - 1;
 	fract->y2 = 1.2;
