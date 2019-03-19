@@ -6,15 +6,6 @@
 # include "../libft/libft.h"
 # define WDEF		1920
 # define HDEF		1300
-# define ERR_1 "Usage: ./fractol <fractals> [<width> <height>]\n"
-# define ERR_2 "fractals: mandelbrot, julia, burningship, oel-ayad, newton"
-# define ERR_USAGE	ERR_1 ERR_2
-# define ERR_MLX	"Error: MLX"
-# define EXIT		"fractol: end session 😊"
-# define JU			"julia"
-# define MAND		"mandelbrot"
-# define BURNING	"burningship"
-# define ITER		"Iterations: "
 
 typedef struct		s_fract
 {

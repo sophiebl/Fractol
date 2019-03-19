@@ -18,7 +18,7 @@ void		fract_graph(t_mlx *mlx)
 	mlx_put_image_to_window(mlx->ptr, mlx->wdw,
 			mlx->infos->img->mlx_img, 0, 0);
 	mlx->infos->i_max_str = ft_itoa(mlx->fract->i_max);
-	mlx->infos->iterations = ft_strjoin(ITER, mlx->infos->i_max_str);
+	mlx->infos->iterations = ft_strjoin("iterations: ", mlx->infos->i_max_str);
 	display_usage(mlx);
 	mlx_destroy_image(mlx->ptr, mlx->infos->img->mlx_img);
 	ft_strdel(&mlx->infos->iterations);

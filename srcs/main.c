@@ -8,11 +8,11 @@ static void		fract_init_infos(short mouse, short fract, t_info *infos)
 
 static void		fract_verif_prms(t_info *infos, char *prms)
 {
-	if (ft_strcmp(prms, MAND) == 0)
+	if (ft_strcmp(prms, "Mandelbrot") == 0)
 		fract_init_infos(0, 0, infos);
-	else if (ft_strcmp(prms, JU) == 0)
+	else if (ft_strcmp(prms, "Julia") == 0)
 		fract_init_infos(1, 1, infos);
-	else if (ft_strcmp(prms, BURNING) == 0)
+	else if (ft_strcmp(prms, "burningship") == 0)
 		fract_init_infos(0, 2, infos);
 	if (infos->fract == -1)
 		fract_err(1);
