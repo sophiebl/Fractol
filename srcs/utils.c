@@ -30,6 +30,5 @@ void			init_tabcolor(t_info *infos)
 
 unsigned int	random_color(void)
 {
-	//return (rand() % (((13487615 + 1) - 0x000000) +  678399));
 	return (rand());
 }
