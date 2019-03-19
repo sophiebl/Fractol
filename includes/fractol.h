@@ -4,8 +4,13 @@
 # include <math.h>
 # include "../mlx/mlx.h"
 # include "../libft/libft.h"
-# define WDEF		1920
-# define HDEF		1300
+# define WIDTH		1920
+# define HEIGHT		1300
+# define JU			"julia"
+# define MAND		"mandelbrot"
+# define SHIP		"burningship"
+# define MY			"oel-ayad"
+# define NEW		"newton"
 
 typedef struct		s_fract
 {
@@ -38,8 +43,8 @@ typedef struct		s_info
 	short			mouse;
 	short			stop_psy;
 	short			fract;
-	int				width;
-	int				height;
+//	int				width;
+//	int				height;
 	short			i_tab;
 	unsigned int	color_tab[11];
 	unsigned int	color;
@@ -61,35 +66,26 @@ typedef struct		s_fractop
 	int			id;
 	char		*fract_name;
 	void		(*fract_dspl)(t_mlx *mlx);
-	void		(*fract_init)(t_fract *fract, t_mlx *mlx);
+	void		(*fract_init)(t_fract *fract);
 }					t_fractop;
-
-/*
-**	init.c
-*/
-void				fract_init_mand(t_fract *fract, t_mlx *mlx);
-void				fract_init_burning(t_fract *fract, t_mlx *mlx);
-void				fract_init_ju(t_fract *fract, t_mlx *mlx);
-
-/*
-**	usage.c
-*/
-void				display_usage(t_mlx *mlx);
 
 /*
 **	mandelbrot.c
 */
 void				fract_dspl_mand(t_mlx *mlx);
+void				fract_init_mand(t_fract *fract);
 
 /*
 **	julia.c
 */
 void				fract_dspl_ju(t_mlx *mlx);
+void				fract_init_ju(t_fract *fract);
 
 /*
 **	burning.c
 */
 void				fract_dspl_burning(t_mlx *mlx);
+void				fract_init_burning(t_fract *fract);
 
 /*
 ** 	error.c
@@ -104,18 +100,18 @@ void				mlxinfos_init(t_info *infos);
 void				fract_graph(t_mlx *mlx);
 
 /*
-**	utils.c
+**	draw.c
 */
-void				fract_pxl(t_mlx *mlx, int x, int y, unsigned int c);
+void				draw_fractol(t_mlx *mlx, int x, int y, unsigned int c);
 void				init_tabcolor(t_info *infos);
-unsigned int		random_color(void);
 
 /*
-**	deal.c
+**	key.c
 */
 int					deal_key(int key, t_mlx *mlx);
 int					loop_hook(t_mlx *mlx);
 int					deal_mouse(int x, int y, t_mlx *mlx);
+void				ft_menu(t_mlx *mlx);
 
 /*
 **	mouse.c

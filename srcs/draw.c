@@ -1,10 +1,10 @@
 #include "../includes/fractol.h"
 
-void			fract_pxl(t_mlx *mlx, int x, int y, unsigned int c)
+void			draw_fractol(t_mlx *mlx, int x, int y, unsigned int c)
 {
 	int		i;
 
-	i = y * mlx->infos->width + x;
+	i = y * WIDTH + x;
 	mlx->infos->img->data[i] = c;
 	mlx->infos->img->data[++i] = c >> 8;
 	mlx->infos->img->data[++i] = c >> 16;

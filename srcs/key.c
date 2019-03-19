@@ -1,5 +1,20 @@
 #include "../includes/fract_op.h"
 
+void		ft_menu(t_mlx *mlx)
+{
+	int		x;
+	int		y;
+
+	x = 40;
+	y = 20;
+	mlx_string_put(mlx->ptr, mlx->wdw, x + 40, y, 0xFFFFFF, "-- COMMANDES --");
+	mlx_string_put(mlx->ptr, mlx->wdw, x, y + 40, 0xFFFFFF, "Zoom  : +/-");
+	mlx_string_put(mlx->ptr, mlx->wdw, x, y + 60, 0xFFFFFF, "Move : arrow");
+	mlx_string_put(mlx->ptr, mlx->wdw, x, y + 80, 0xFFFFFF, "Color : C");
+	mlx_string_put(mlx->ptr, mlx->wdw, x, y + 100, 0xFFFFFF, "Psychedelic : P");
+	mlx_string_put(mlx->ptr, mlx->wdw, x, y + 120, 0xFFFFFF, "Exit : ESC");
+}
+
 static int			deal_key_ter(int key, t_mlx *mlx)
 {
 	if (key == 46)
@@ -9,13 +24,13 @@ static int			deal_key_ter(int key, t_mlx *mlx)
 		else
 			mlx->infos->mouse = 0;
 	}
-	else if (key == 123)
-		mlx->fract->x1 -= 0.2;
 	else if (key == 124)
+		mlx->fract->x1 -= 0.2;
+	else if (key == 123)
 		mlx->fract->x1 += 0.2;
-	else if (key == 126)
-		mlx->fract->y1 -= 0.2;
 	else if (key == 125)
+		mlx->fract->y1 -= 0.2;
+	else if (key == 126)
 		mlx->fract->y1 += 0.2;
 	else if (key == 8)
 	{
@@ -57,6 +72,10 @@ int			deal_key(int key, t_mlx *mlx)
 		mlx->fract->x1 -= 0.0001;
 		mlx->fract->y1 += 0.0001;
 	}
+	else if (key == 34 && mlx->fract->i_max < 400)
+		mlx->fract->i_max++;
+	else if (key == 31 && mlx->fract->i_max > 10)
+		mlx->fract->i_max--;
 	deal_key_bis(key, mlx);
 	mlx_clear_window(mlx->ptr, mlx->wdw);
 	fract_graph(mlx);

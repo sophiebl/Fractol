@@ -9,51 +9,24 @@ static void		fract_init_infos(short mouse, short fract, t_info *infos)
 static void		fract_verif_prms(t_info *infos, char *prms)
 {
 	if (ft_strcmp(prms, "Mandelbrot") == 0)
-		fract_init_infos(0, 0, infos);
+		fract_init_infos(0, 1, infos);
 	else if (ft_strcmp(prms, "Julia") == 0)
-		fract_init_infos(1, 1, infos);
-	else if (ft_strcmp(prms, "burningship") == 0)
-		fract_init_infos(0, 2, infos);
+		fract_init_infos(1, 2, infos);
+	else if (ft_strcmp(prms, "Burningship") == 0)
+		fract_init_infos(0, 3, infos);
 	if (infos->fract == -1)
 		fract_err(1);
-}
-
-static void		fract_setwin(t_info *infos, int x, int y)
-{
-	if (x >= WDEF || y >= HDEF)
-	{
-		infos->width = WDEF;
-		infos->height = HDEF;
-	}
-	else if (x >= 400 && y >= 400)
-	{
-		infos->width = x;
-		infos->height = y;
-	}
-	else
-	{
-		infos->width = WDEF;
-		infos->height = HDEF;
-	}
 }
 
 int			main(int ac, char **av)
 {
 	t_info	infos[1];
 
-	if (ac == 2 || ac == 4)
+	if (ac == 2)
 	{
 		infos->fract = -1;
 		fract_verif_prms(infos, av[1]);
 		init_tabcolor(infos);
-		if (ac == 4)
-		{
-			if (!(ft_strisnumeric(av[2])) || !(ft_strisnumeric(av[3])))
-				fract_err(1);
-			fract_setwin(infos, ft_atoi(av[2]), ft_atoi(av[3]));
-		}
-		else
-			fract_setwin(infos, WDEF, HDEF);
 		mlxinfos_init(infos);
 	}
 	else

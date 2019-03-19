@@ -2,8 +2,9 @@
 
 int			deal_mouse(int x, int y, t_mlx *mlx)
 {
-	x = x - mlx->infos->width / 3;
-	y = y - mlx->infos->height / 3;
+	x = x - WIDTH / 3;
+	y = y - HEIGHT / 3;
+	//if (mlx->infos->fract == 1 && mlx->infos->mouse == 1)
 	if (mlx->infos->fract == 1 && mlx->infos->mouse == 1)
 	{
 		mlx->fract->c_r = (double)((double)x / (double)y);

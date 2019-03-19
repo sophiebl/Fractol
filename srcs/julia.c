@@ -15,9 +15,9 @@ void		fract_iter_ju(t_fract *fract, t_mlx *mlx, long long x, long long y)
 		i++;
 	}
 	if (i == fract->i_max)
-		fract_pxl(mlx, x, y, 0x000000);
+		draw_fractol(mlx, x, y, 0x000000);
 	else
-		fract_pxl(mlx, x, y, mlx->infos->color * i);
+		draw_fractol(mlx, x, y, mlx->infos->color * i);
 }
 
 void		fract_dspl_ju(t_mlx *mlx)
@@ -36,4 +36,19 @@ void		fract_dspl_ju(t_mlx *mlx)
 		}
 		x++;
 	}
+}
+
+void		fract_init_ju(t_fract *fract)
+{
+	fract->img_x = WIDTH - 1;
+	fract->img_y = HEIGHT - 1;
+	fract->c_r = 0.285;
+	fract->c_i = 0.01;
+	fract->x1 = fract->img_x * -0.001;
+	fract->x2 = 1;
+	fract->y1 = fract->img_y * -0.001;
+	fract->y2 = 1.2;
+	fract->tmp = 0;
+	fract->i_max = 30;
+	fract->zoom = WIDTH / 6;
 }

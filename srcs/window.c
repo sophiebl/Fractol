@@ -1,8 +1,8 @@
 #include "../includes/fract_op.h"
 
-void		fract_init_img(t_info *window, t_img *img, void *ptr)
+static void		fract_init_img(t_img *img, void *ptr)
 {
-	if (!(img->mlx_img = mlx_new_image(ptr, window->width, window->height)))
+	if (!(img->mlx_img = mlx_new_image(ptr, WIDTH, HEIGHT)))
 		fract_err(2);
 	img->data = (int *)mlx_get_data_addr(img->mlx_img, &img->bperpix,
 			&img->size_line, &img->endian);
@@ -12,14 +12,13 @@ void		fract_graph(t_mlx *mlx)
 {
 	t_img	img[1];
 
-	fract_init_img(mlx->infos, img, mlx->ptr);
+	fract_init_img(img, mlx->ptr);
 	mlx->infos->img = img;
 	g_fractop[mlx->infos->fract].fract_dspl(mlx);
-	mlx_put_image_to_window(mlx->ptr, mlx->wdw,
-			mlx->infos->img->mlx_img, 0, 0);
+	mlx_put_image_to_window(mlx->ptr, mlx->wdw, mlx->infos->img->mlx_img, 0, 0);
 	mlx->infos->i_max_str = ft_itoa(mlx->fract->i_max);
 	mlx->infos->iterations = ft_strjoin("iterations: ", mlx->infos->i_max_str);
-	display_usage(mlx);
+	ft_menu(mlx);
 	mlx_destroy_image(mlx->ptr, mlx->infos->img->mlx_img);
 	ft_strdel(&mlx->infos->iterations);
 	ft_strdel(&mlx->infos->i_max_str);
@@ -32,13 +31,10 @@ void		mlxinfos_init(t_info *infos)
 
 	if (!(mlx->ptr = mlx_init()))
 		fract_err(2);
-	if (!(mlx->wdw = mlx_new_window(mlx->ptr, infos->width,
-					infos->height, "Fractol")))
+	if (!(mlx->wdw = mlx_new_window(mlx->ptr, WIDTH, HEIGHT, "Fractol")))
 		fract_err(2);
 	mlx->infos = infos;
-	infos->width = WDEF;
-	infos->height = HDEF;
-	g_fractop[mlx->infos->fract].fract_init(fract, mlx);
+	g_fractop[mlx->infos->fract].fract_init(fract);
 	mlx->fract = fract;
 	fract_graph(mlx);
 	mlx_hook(mlx->wdw, 2, 5, deal_key, mlx);

@@ -1,16 +1,14 @@
 NAME	= fractol
 
 SRC		= main.c \
-			deal.c \
+			key.c \
 			mouse.c \
 			mandelbrot.c \
 			julia.c \
 			burning.c \
-			utils.c \
-			init.c \
+			draw.c \
 			error.c \
-			window.c \
-			usage.c
+			window.c 
 
 OBJ		= $(addprefix $(OBJDIR),$(SRC:.c=.o))
 

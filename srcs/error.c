@@ -3,7 +3,7 @@
 void		fract_err(int id)
 {
 	if (id == 1)
-		ft_putendl_fd("Usage: ./fractol <fractals_model> [<width> <height>]", 2);
+		ft_putendl_fd("Usage: ./fractol <fractals_model>\nFractals models : Mandelbrot, Julia, Burningship", 2);
 	if (id == 2)
 		ft_putendl_fd("error : mlx", 2);
 	exit(id);
