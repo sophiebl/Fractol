@@ -1,6 +1,6 @@
-#include "../includes/frtl.h"
+#include "../includes/fractol.h"
 
-void			frtl_pxl(t_mlx *mlx, int x, int y, unsigned int c)
+void			fract_pxl(t_mlx *mlx, int x, int y, unsigned int c)
 {
 	int		i;
 
@@ -10,7 +10,7 @@ void			frtl_pxl(t_mlx *mlx, int x, int y, unsigned int c)
 	mlx->infos->img->data[++i] = c >> 16;
 }
 
-void			init_tabcolor(t_infowin *infos)
+void			init_tabcolor(t_info *infos)
 {
 	infos->stop_psy = 1;
 	infos->color_tab[0] = 0x0BCDEF;

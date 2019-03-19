@@ -1,30 +1,16 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: oel-ayad <marvin@42.fr>                    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2019/01/16 14:34:20 by oel-ayad          #+#    #+#              #
-#    Updated: 2019/01/30 15:42:32 by oel-ayad         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 NAME	= fractol
 
-SRC		= frtl_main.c \
-			frtl_err.c \
-			frtl_windows.c \
-			frtl_deal.c \
-			frtl_deal_mouse.c \
-			frtl_mand.c \
-			frtl_ju.c \
-			frtl_my.c \
-			frtl_newton.c \
-			frtl_ship.c \
-			frtl_utils.c \
-			frtl_init.c \
-			frtl_usage.c
+SRC		= main.c \
+			deal.c \
+			mouse.c \
+			mandelbrot.c \
+			julia.c \
+			burning.c \
+			utils.c \
+			init.c \
+			error.c \
+			window.c \
+			usage.c
 
 OBJ		= $(addprefix $(OBJDIR),$(SRC:.c=.o))
 

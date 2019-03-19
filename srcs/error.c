@@ -1,6 +1,6 @@
-#include "../includes/frtl.h"
+#include "../includes/fractol.h"
 
-void		frtl_err(int id)
+void		fract_err(int id)
 {
 	if (id == 1)
 		ft_putendl_fd(ERR_USAGE, 2);
@@ -9,7 +9,7 @@ void		frtl_err(int id)
 	exit(id);
 }
 
-void		frtl_exit(int id)
+void		fract_exit(int id)
 {
 	if (id == 0)
 		ft_putendl(EXIT);
