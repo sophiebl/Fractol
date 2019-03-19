@@ -2,9 +2,7 @@
 
 static int			deal_key_ter(int key, t_mlx *mlx)
 {
-	if (key == 15)
-		g_fractop[mlx->infos->fract].fract_init(mlx->fract, mlx);
-	else if (key == 46)
+	if (key == 46)
 	{
 		if (mlx->infos->mouse == 0)
 			mlx->infos->mouse = 1;
@@ -37,19 +35,6 @@ static int			deal_key_bis(int key, t_mlx *mlx)
 			mlx->infos->stop_psy = 1;
 		else
 			mlx->infos->stop_psy = 0;
-	}
-	else if (key == 3)
-	{
-		if (mlx->infos->fract == 4)
-		{
-			mlx->infos->fract = 0;
-			g_fractop[mlx->infos->fract].fract_init(mlx->fract, mlx);
-		}
-		else
-		{
-			mlx->infos->fract++;
-			g_fractop[mlx->infos->fract].fract_init(mlx->fract, mlx);
-		}
 	}
 	else
 		deal_key_ter(key, mlx);

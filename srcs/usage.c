@@ -23,8 +23,6 @@ void		display_usage(t_mlx *mlx)
 			"-------- COMMANDES --------");
 	mlx_string_put(mlx->ptr, mlx->wdw, x, y + 40, 0xFFFFFF,
 			"Exit                  ESC");
-	mlx_string_put(mlx->ptr, mlx->wdw, x, y + 80, 0xFFFFFF,
-			"Change fractal         F");
 	mlx_string_put(mlx->ptr, mlx->wdw, x, y + 120, 0xFFFFFF,
 			"Zoom/Dezoom            +/-");
 	mlx_string_put(mlx->ptr, mlx->wdw, x, y + 160, 0xFFFFFF,

@@ -13,7 +13,7 @@ void			fract_pxl(t_mlx *mlx, int x, int y, unsigned int c)
 void			init_tabcolor(t_info *infos)
 {
 	infos->stop_psy = 1;
-	infos->color_tab[0] = 0x0BCDEF;
+	infos->color_tab[0] = 13487615;
 	infos->color_tab[1] = 0x123456;
 	infos->color_tab[2] = 0x110000;
 	infos->color_tab[3] = 0x001100;
