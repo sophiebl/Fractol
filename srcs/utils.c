@@ -27,8 +27,3 @@ void			init_tabcolor(t_info *infos)
 	infos->color = infos->color_tab[0];
 	infos->i_tab = 0;
 }
-
-unsigned int	random_color(void)
-{
-	return (rand());
-}

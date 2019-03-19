@@ -27,12 +27,8 @@ void		display_usage(t_mlx *mlx)
 			"Zoom/Dezoom            +/-");
 	mlx_string_put(mlx->ptr, mlx->wdw, x, y + 160, 0xFFFFFF,
 			"Change color           C");
-	mlx_string_put(mlx->ptr, mlx->wdw, x, y + 200, 0xFFFFFF,
-			"Less/More    L/M"); //iteration
 	mlx_string_put(mlx->ptr, mlx->wdw, x, y + 240, 0xFFFFFF,
 			"Psychedelic mode       P");
-	mlx_string_put(mlx->ptr, mlx->wdw, x, y + 280, 0xFFFFFF,
-			"Reset                  R");
 	mlx_string_put(mlx->ptr, mlx->wdw, x, y + 320, 0xFFFFFF,
 			"Mouse                  M");
 	display_usage_bis(mlx, x, y);

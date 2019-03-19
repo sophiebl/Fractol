@@ -57,10 +57,6 @@ int			deal_key(int key, t_mlx *mlx)
 		mlx->fract->x1 -= 0.0001;
 		mlx->fract->y1 += 0.0001;
 	}
-	else if (key == 34 && mlx->fract->i_max < 400)
-		mlx->fract->i_max++;
-	else if (key == 31 && mlx->fract->i_max > 10)
-		mlx->fract->i_max--;
 	deal_key_bis(key, mlx);
 	mlx_clear_window(mlx->ptr, mlx->wdw);
 	fract_graph(mlx);
@@ -71,7 +67,7 @@ int			loop_hook(t_mlx *mlx)
 {
 	if (mlx->infos->stop_psy == 0)
 	{
-		mlx->infos->color = random_color();
+		mlx->infos->color = rand();
 		mlx_clear_window(mlx->ptr, mlx->wdw);
 		fract_graph(mlx);
 	}
