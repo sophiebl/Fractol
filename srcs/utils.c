@@ -14,21 +14,22 @@ void			init_tabcolor(t_info *infos)
 {
 	infos->stop_psy = 1;
 	infos->color_tab[0] = 13487615;
-	infos->color_tab[1] = 0x123456;
-	infos->color_tab[2] = 0x110000;
-	infos->color_tab[3] = 0x001100;
-	infos->color_tab[4] = 0x000011;
-	infos->color_tab[5] = 0x111100;
-	infos->color_tab[6] = 0xAA00AA;
-	infos->color_tab[7] = 0x00AAAA;
-	infos->color_tab[8] = 0xFEDCBA;
-	infos->color_tab[9] = 0x654321;
-	infos->color_tab[10] = 0xAAFFAA;
+	infos->color_tab[1] = 6329952;
+	infos->color_tab[2] = 13130239;
+	infos->color_tab[3] = 6939236;
+	infos->color_tab[4] = 9856250;
+	infos->color_tab[5] = 16404540;
+	infos->color_tab[6] = 16724730;
+	infos->color_tab[7] = 16750110;
+	infos->color_tab[8] = 3289850;
+	infos->color_tab[9] = 678399;	
+	infos->color_tab[10] = 9881850;
 	infos->color = infos->color_tab[0];
 	infos->i_tab = 0;
 }
 
 unsigned int	random_color(void)
 {
-	return (rand() % (((0xFFFF00 + 1) - 0x000000) + 0xFFFFFF));
+	//return (rand() % (((13487615 + 1) - 0x000000) +  678399));
+	return (rand());
 }

@@ -36,6 +36,8 @@ void		mlxinfos_init(t_info *infos)
 					infos->height, "Fractol")))
 		fract_err(2);
 	mlx->infos = infos;
+	infos->width = WDEF;
+	infos->height = HDEF;
 	g_fractop[mlx->infos->fract].fract_init(fract, mlx);
 	mlx->fract = fract;
 	fract_graph(mlx);
