@@ -6,13 +6,13 @@
 /*   By: sboulaao <sboulaao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/19 22:53:03 by sboulaao          #+#    #+#             */
-/*   Updated: 2019/03/19 22:53:04 by sboulaao         ###   ########.fr       */
+/*   Updated: 2019/03/20 01:11:06 by sboulaao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fract_op.h"
 
-void		ft_menu(t_mlx *mlx)
+void				ft_menu(t_mlx *mlx)
 {
 	int		x;
 	int		y;
@@ -25,6 +25,9 @@ void		ft_menu(t_mlx *mlx)
 	mlx_string_put(mlx->ptr, mlx->wdw, x, y + 80, 0xFFFFFF, "Color : C");
 	mlx_string_put(mlx->ptr, mlx->wdw, x, y + 100, 0xFFFFFF, "Psychedelic : P");
 	mlx_string_put(mlx->ptr, mlx->wdw, x, y + 120, 0xFFFFFF, "Exit : ESC");
+	mlx_string_put(mlx->ptr, mlx->wdw, x, y + 140, 0xFFFFFF, "Iteration : I/O");
+	mlx_string_put(mlx->ptr, mlx->wdw, x, y + 160, 0xFFFFFF
+			, mlx->infos->iterations);
 }
 
 static int			deal_key_ter(int key, t_mlx *mlx)
@@ -36,13 +39,13 @@ static int			deal_key_ter(int key, t_mlx *mlx)
 		else
 			mlx->infos->mouse = 0;
 	}
-	else if (key == 124)
-		mlx->fract->x1 -= 0.2;
 	else if (key == 123)
+		mlx->fract->x1 -= 0.2;
+	else if (key == 124)
 		mlx->fract->x1 += 0.2;
-	else if (key == 125)
-		mlx->fract->y1 -= 0.2;
 	else if (key == 126)
+		mlx->fract->y1 -= 0.2;
+	else if (key == 125)
 		mlx->fract->y1 += 0.2;
 	else if (key == 8)
 	{
@@ -68,7 +71,7 @@ static int			deal_key_bis(int key, t_mlx *mlx)
 	return (0);
 }
 
-int			deal_key(int key, t_mlx *mlx)
+int					deal_key(int key, t_mlx *mlx)
 {
 	if (key == 53)
 		fract_exit(0);
@@ -94,7 +97,7 @@ int			deal_key(int key, t_mlx *mlx)
 	return (0);
 }
 
-int			loop_hook(t_mlx *mlx)
+int					loop_hook(t_mlx *mlx)
 {
 	if (mlx->infos->stop_psy == 0)
 	{

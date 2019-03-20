@@ -6,13 +6,14 @@
 /*   By: sboulaao <sboulaao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/19 22:53:29 by sboulaao          #+#    #+#             */
-/*   Updated: 2019/03/19 22:53:31 by sboulaao         ###   ########.fr       */
+/*   Updated: 2019/03/20 01:01:45 by sboulaao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-static void		fract_iter_mand(t_fract *fract, t_mlx *mlx, long long x, long long y)
+static void
+	fract_iter_mand(t_fract *fract, t_mlx *mlx, long long x, long long y)
 {
 	long long	i;
 
@@ -21,10 +22,12 @@ static void		fract_iter_mand(t_fract *fract, t_mlx *mlx, long long x, long long 
 	fract->z_r = 0;
 	fract->z_i = 0;
 	i = 0;
-	while (fract->z_r * fract->z_r + fract->z_i * fract->z_i < 4 && i < fract->i_max)
+	while (fract->z_r * fract->z_r + fract->z_i * fract->z_i < 4
+			&& i < fract->i_max)
 	{
 		fract->tmp = fract->z_r;
-		fract->z_r = fract->z_r * fract->z_r - fract->z_i * fract->z_i + fract->c_r;
+		fract->z_r = fract->z_r * fract->z_r - fract->z_i * fract->z_i
+			+ fract->c_r;
 		fract->z_i = 2 * fract->z_i * fract->tmp + fract->c_i;
 		i++;
 	}
@@ -34,7 +37,8 @@ static void		fract_iter_mand(t_fract *fract, t_mlx *mlx, long long x, long long 
 		draw_fractol(mlx, x, y, mlx->infos->color * i);
 }
 
-void		fract_dspl_mand(t_mlx *mlx)
+void
+	fract_dspl_mand(t_mlx *mlx)
 {
 	long long	x;
 	long long	y;
@@ -52,7 +56,8 @@ void		fract_dspl_mand(t_mlx *mlx)
 	}
 }
 
-void		fract_init_mand(t_fract *fract)
+void
+	fract_init_mand(t_fract *fract)
 {
 	fract->img_x = WIDTH;
 	fract->img_y = HEIGHT;

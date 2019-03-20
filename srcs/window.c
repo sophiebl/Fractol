@@ -6,7 +6,7 @@
 /*   By: sboulaao <sboulaao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/19 22:53:57 by sboulaao          #+#    #+#             */
-/*   Updated: 2019/03/19 22:53:59 by sboulaao         ###   ########.fr       */
+/*   Updated: 2019/03/20 00:54:03 by sboulaao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ static void		fract_init_img(t_img *img, void *ptr)
 			&img->size_line, &img->endian);
 }
 
-void		fract_graph(t_mlx *mlx)
+void			fract_graph(t_mlx *mlx)
 {
-	t_img	img[1];
+	t_img		img[1];
 
 	fract_init_img(img, mlx->ptr);
 	mlx->infos->img = img;
@@ -36,7 +36,7 @@ void		fract_graph(t_mlx *mlx)
 	ft_strdel(&mlx->infos->i_max_str);
 }
 
-void		mlxinfos_init(t_info *infos)
+void			mlxinfos_init(t_info *infos)
 {
 	t_mlx		mlx[1];
 	t_fract		fract[1];

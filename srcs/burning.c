@@ -6,7 +6,7 @@
 /*   By: sboulaao <sboulaao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/19 22:51:51 by sboulaao          #+#    #+#             */
-/*   Updated: 2019/03/19 22:51:54 by sboulaao         ###   ########.fr       */
+/*   Updated: 2019/03/20 00:59:26 by sboulaao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,12 @@ void	fract_iter_burning(t_fract *fract, t_mlx *mlx, long long x, long long y)
 	fract->z_r = 0;
 	fract->z_i = 0;
 	i = 0;
-	while (fract->z_r * fract->z_r + fract->z_i * fract->z_i < 4 && i < fract->i_max)
+	while (fract->z_r * fract->z_r + fract->z_i * fract->z_i < 4
+			&& i < fract->i_max)
 	{
 		fract->tmp = fract->z_r;
-		fract->z_r = fract->z_r * fract->z_r - fract->z_i * fract->z_i + fract->c_r;
+		fract->z_r = fract->z_r * fract->z_r - fract->z_i * fract->z_i
+			+ fract->c_r;
 		fract->z_i = 2 * fabs(fract->tmp * fract->z_i) + fract->c_i;
 		i++;
 	}
@@ -52,7 +54,7 @@ void	fract_dspl_burning(t_mlx *mlx)
 	}
 }
 
-void		fract_init_burning(t_fract *fract)
+void	fract_init_burning(t_fract *fract)
 {
 	fract->img_x = WIDTH - 1;
 	fract->img_y = HEIGHT - 1;

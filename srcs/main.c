@@ -6,7 +6,7 @@
 /*   By: sboulaao <sboulaao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/19 22:53:16 by sboulaao          #+#    #+#             */
-/*   Updated: 2019/03/19 22:53:19 by sboulaao         ###   ########.fr       */
+/*   Updated: 2019/03/20 00:57:12 by sboulaao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ static void		fract_verif_prms(t_info *infos, char *prms)
 		fract_err(1);
 }
 
-int			main(int ac, char **av)
+int				main(int ac, char **av)
 {
-	t_info	infos[1];
+	t_info		infos[1];
 
 	if (ac == 2)
 	{

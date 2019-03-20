@@ -6,7 +6,7 @@
 /*   By: sboulaao <sboulaao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/19 22:52:02 by sboulaao          #+#    #+#             */
-/*   Updated: 2019/03/19 22:52:05 by sboulaao         ###   ########.fr       */
+/*   Updated: 2019/03/20 01:00:25 by sboulaao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ void			draw_fractol(t_mlx *mlx, int x, int y, unsigned int c)
 
 	i = y * WIDTH + x;
 	mlx->infos->img->data[i] = c;
-	//mlx->infos->img->data[++i] = c >> 8;
-	//mlx->infos->img->data[++i] = c >> 16;
 }
 
 void			init_tabcolor(t_info *infos)
@@ -34,7 +32,7 @@ void			init_tabcolor(t_info *infos)
 	infos->color_tab[6] = 16724730;
 	infos->color_tab[7] = 16750110;
 	infos->color_tab[8] = 3289850;
-	infos->color_tab[9] = 678399;	
+	infos->color_tab[9] = 678399;
 	infos->color_tab[10] = 9881850;
 	infos->color = infos->color_tab[0];
 	infos->i_tab = 0;

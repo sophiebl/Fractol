@@ -6,7 +6,7 @@
 /*   By: sboulaao <sboulaao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/19 22:52:48 by sboulaao          #+#    #+#             */
-/*   Updated: 2019/03/19 22:52:51 by sboulaao         ###   ########.fr       */
+/*   Updated: 2019/03/20 00:55:34 by sboulaao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,12 @@ void		fract_iter_ju(t_fract *fract, t_mlx *mlx, long long x, long long y)
 	i = 0;
 	fract->z_r = x / fract->zoom + fract->x1;
 	fract->z_i = y / fract->zoom + fract->y1;
-	while (fract->z_r * fract->z_r + fract->z_i * fract->z_i < 4 && i < fract->i_max)
+	while (fract->z_r * fract->z_r + fract->z_i * fract->z_i < 4
+			&& i < fract->i_max)
 	{
 		fract->tmp = fract->z_r;
-		fract->z_r = fract->z_r * fract->z_r - fract->z_i * fract->z_i + fract->c_r;
+		fract->z_r = fract->z_r * fract->z_r - fract->z_i * fract->z_i
+			+ fract->c_r;
 		fract->z_i = 2 * fract->z_i * fract->tmp + fract->c_i;
 		i++;
 	}
